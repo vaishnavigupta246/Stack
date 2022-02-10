@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+class stackk
+{
+    public:
+    int *arr;
+    int cap;
+    int top;
+    stackk(int x)
+    {
+        cap=x;
+        arr=new int[cap];
+        top=-1;
+    }
+    int pop()
+    {
+        if(top==-1)
+        return 0;
+        int v=arr[top];
+        top--;
+        return arr[top];
+    }
+    int peek()
+    {
+        if(top==-1)
+        return 0;
+        return arr[top];
+    }
+int push(int x)
+{
+    top++;
+arr[top]=x;
+return x;
+}
+int size()
+{
+    return (top+1);
+}
+bool isEmpty()
+{
+    return(top==-1);
+}
+};
+int main()
+{
+    stackk s(7);
+    cout<<s.pop()<<endl;
+    cout<<s.peek()<<endl;
+    cout<<s.push(50)<<endl;
+    cout<<s.push(40)<<endl;
+    cout<<s.push(30)<<endl;
+    cout<<s.push(50)<<endl;
+     cout<<s.push(50)<<endl;
+      cout<<s.push(50)<<endl;
+       cout<<s.push(50)<<endl;
+    cout<<s.push(50)<<endl;
+    cout<<s.peek()<<endl;
+    cout<<s.size()<<endl;
+    cout<<s.pop()<<endl;
+    cout<<s.isEmpty()<<endl;
+}
