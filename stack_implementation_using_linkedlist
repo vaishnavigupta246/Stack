@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+class node
+{
+    public:
+    int data;
+    node *next;
+    node(int x)
+    {
+        data=x;
+        next=NULL;
+    }
+};
+class mystack
+{
+    public:
+    node *head;
+    int siz;
+    mystack()
+    {
+        head=NULL;
+        siz=0;
+    }
+    void push(int x)
+    {
+        node *temp=new node(x);
+        temp->next=head;
+        head=temp;
+        siz++;
+    }
+    int pop()
+    {
+        int res=head->data;
+        node *temp=head;
+        head=head->next;
+        delete(temp);
+        siz--;
+        return res;
+    }
+    int peep()
+    {
+        if(head==NULL)
+        {
+            return INT_MAX;
+        }
+        return head->data;
+    }
+    int sizee()
+    {
+        return siz;
+    }
+    int isEmpty()
+    {
+        return (siz==0);
+    }
+};
+int main()
+{
+    mystack s;
+    s.push(1);
+     s.push(2);
+      s.push(3);
+       s.push(4);
+        s.push(5);
+        cout<<s.pop()<<endl;
+        cout<<s.peep()<<endl;
+        cout<<s.sizee()<<endl;
+        cout<<s.isEmpty()<<endl;
+        return 0;
+}
